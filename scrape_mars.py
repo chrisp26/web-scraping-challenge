@@ -29,22 +29,20 @@ def scrape_info():
 
     # Scrape News Titles and snippets
 
-    titles = []
-    news_p = []
+    headlines ={}
 
     for new in news:
-        title = new.find('div', class_='content_title').text
-        news_ = new.find('div', class_='article_teaser_body').text
-        titles.append(title)
-        news_p.append(news_)
-
-        print(title)
-        print(news_)
+        headlines['title'] = new.find('div', class_='content_title').text
+        headlines['teaser'] = new.find('div', class_='article_teaser_body').text
+        
+        print(headlines)
         print('--------------------')
 
     browser.quit()
+    
+    return scrape_info
 
-    return titles, news_p
+    browser.quit()
     
     # ------------------------------------------------------
     # Scrape JPL Mars Space Images - Featured Image
